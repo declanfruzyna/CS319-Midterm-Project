@@ -29,10 +29,10 @@ function loadMovies(myMovies) {
         AddCardMovie.classList.add("col");
         // create Bootstrap card
         AddCardMovie.innerHTML = `
-            <div id=${card} class="card shadow-sm">
+            <div id=${card} class="card shadow-sm content-zones">
                 <img src=${url} class="card-img-top" alt="..."></img>
                 <div class="card-body">
-                    <p class="card-text"> <strong>${title}</strong>, ${year}</p>
+                    <p class="card-text text"> <strong>${title}</strong>, ${year}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
