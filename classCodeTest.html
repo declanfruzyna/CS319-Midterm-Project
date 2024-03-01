@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="./StyleGuide.css">
+
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -183,18 +185,6 @@
       display: block !important;
     }
 
-    .bg-body-tertiary {
-      background-color: rgb(243, 235, 255) !important;
-    }
-
-    .bg-dark {
-      background-color: rgb(121, 91, 169) !important;
-    }
-
-    .card-body {
-      background-color: rgb(196, 169, 226);
-    }
-
     .card-text {
       margin-bottom: 5px;
     }
@@ -203,8 +193,9 @@
       margin-top: 0px;
       margin-bottom: 0px;
     }
+
     .py-5 {
-      padding-top: 5rem!important;
+      padding-top: 5rem !important;
     }
   </style>
 
@@ -212,7 +203,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark header-color">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.html">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -248,31 +239,25 @@
   <main>
   </main>
 
-  
 
-  <div class = "wrapper">
-    <!-- logo -->
-    <div class = "logo">
-        <div class = "container">
-            <p>Movie<span>Corn.</span></p>
-        </div>
-    </div>
-    <!-- end of logo -->
+
+  <div class="wrapper">
     <!-- search container -->
-    <div class = "search-container">
-        <div class = "search-element">
-            <h3>Search Movie:</h3>
-            <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" onkeyup="findMovies()" onclick = "findMovies()">
-                <!-- on load, from JSON top movies ??? -->
-            <div class="album py-5 bg-body-tertiary">
-                <div class="container">
-                    <div class = "search-list" id = "search-list">
-                        <div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
-                    </div>
-                </div>
+    <div class="search-container">
+      <div class="search-element">
+        <h3 class="text">Search Movie:</h3>
+        <input type="text" class="form-control thing" placeholder="Search Movie Title ..." id="movie-search-box"
+          onkeyup="findMovies()" onclick="findMovies()">
+        <!-- on load, from JSON top movies ??? -->
+        <div class="album py-5 bg-body-tertiary">
+          <div class="container">
+            <div class="search-list" id="search-list">
+              <div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
             </div>
-                <!-- list here -->
-                <!-- <div class = "search-list-item">
+          </div>
+        </div>
+        <!-- list here -->
+        <!-- <div class = "search-list-item">
                     <div class = "search-item-thumbnail">
                         <img src = "medium-cover.jpg">
                     </div>
@@ -281,16 +266,16 @@
                         <p>2017</p>
                     </div>
                 </div> -->
-        </div>
+      </div>
     </div>
     <!-- end of search container -->
 
     <!-- result container -->
-    <div class = "container">
-        <div class = "result-container">
-            <div class = "result-grid" id = "result-grid">
-                <!-- movie information here -->
-                <!-- <div class = "movie-poster">
+    <div class="container">
+      <div class="result-container">
+        <div class="result-grid" id="result-grid">
+          <!-- movie information here -->
+          <!-- <div class = "movie-poster">
                     <img src = "medium-cover.jpg" alt = "movie poster">
                 </div>
                 <div class = "movie-info">
@@ -307,32 +292,32 @@
                     <p class = "language"><b>Language:</b> English</p>
                     <p class = "awards"><b><i class = "fas fa-award"></i></b> Nominated for 1 Oscar</p>
                 </div> -->
-            </div>
         </div>
+      </div>
     </div>
     <!-- end of result container -->
-</div>
+  </div>
 
 
+  <!-- theme js -->
+  <script src="./themes.js"></script>
+  <!-- movie app js -->
+  <script src="./classCodeTest.js"></script>
 
-<!-- movie app js -->
-<script src = "./classCodeTest.js"></script>
 
-  
-  <footer class="text-body-secondary py-5">
+  <footer class="text-body-secondary mt-auto py-5 footer">
     <div class="container">
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
       </p>
+      <button id="switch" onclick="lightTheme()">Light</button>
+      <button id="switch" onclick="darkTheme()">Dark</button>
       <p class="mb-1">Album example is &copy; Bootstrap</p>
       <p class="mb-0">@Declan Fruzyna & Kaining Gao</p>
       <p class="mb-0">Made 2/27/24</p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
 
 </html>

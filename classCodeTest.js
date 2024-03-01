@@ -26,7 +26,7 @@ function findMovies(){
 
 //                          | 3
 function movieSearchPropagator(movies) {
-    searchList.innerHTML = `<div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>`;
+    searchList.innerHTML = `<div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3"></div>`;
     // Find the element “col” in HTML
     var CardMovie = document.getElementById("col");
 
@@ -45,7 +45,7 @@ function movieSearchPropagator(movies) {
         movieListCard.classList.add("col");
         // create Bootstrap card
         movieListCard.innerHTML = `
-            <div id=${movies[i].imdbID} class="card shadow-sm content-zones search-item-thumbnail search-list-item">
+            <div id=${movies[i].imdbID} class="card shadow-sm content-zone search-item-thumbnail search-list-item">
                 <img src=${moviePoster} class="card-img-top" alt="..."></img>
                 <div class="card-body">
                     <p class="card-text text"> <strong>${movies[i].Title}</strong>, ${movies[i].Year}</p>
