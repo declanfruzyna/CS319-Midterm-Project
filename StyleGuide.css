@@ -39,6 +39,9 @@ html {
     background-color: var(--content-color) !important;
     color: var(--color-font) !important
 }
+body {
+    background-color: var(--color-background) !important;
+}
 .header-color {
     background-color: var(--color-header) !important;
     color: var(--font-color-on-dark) !important;
@@ -57,7 +60,9 @@ html {
 .thing {
     background-color: var(--color-secondary) !important;
 }
-
+.nav-bar-bump {
+    margin-top: 80px !important;
+}
 
 
 

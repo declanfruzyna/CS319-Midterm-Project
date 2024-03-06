@@ -46,7 +46,7 @@ function movieSearchPropagator(movies) {
         // create Bootstrap card
         movieListCard.innerHTML = `
             <div id=${movies[i].imdbID} class="card shadow-sm content-zone search-item-thumbnail search-list-item">
-                <img src=${moviePoster} class="card-img-top" alt="..."></img>
+                <a href="./moviePage.html#${movies[i].imdbID}"><img src=${moviePoster} class="card-img-top" alt="..."></img></a>
                 <div class="card-body">
                     <p class="card-text text"> <strong>${movies[i].Title}</strong>, ${movies[i].Year}</p>
                     <div class="d-flex justify-content-between align-items-center">
