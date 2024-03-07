@@ -25,9 +25,9 @@
 .site-theme-high-contrast {
     --color-background: rgb(11, 22, 34);
 }
-html {
+/* html {
     background-color: var(--color-background);
-}
+} */
 .wrapper {
     background-color: var(--color-background) !important;
     padding-top: 64px;

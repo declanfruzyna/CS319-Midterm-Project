@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-  <script src="../assets/js/color-modes.js"></script>
+  <!-- <script src="../assets/js/color-modes.js"></script> -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,25 +144,28 @@
     <div class="container my-5 nav-bar-bump background">
       <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg content-zone">
         <div class="col-lg-4 offset-rg-1 p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3" src="image_not_found.png" alt="" width="500">
+          <img id="movie-poster" class="rounded-lg-3" src="image_not_found.png" alt="" width="500">
         </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Movie Title</h1>
-          <p class="lead">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ <p>
+          <h1 id="movie-title" class="display-4 fw-bold lh-1 text-body-emphasis">rah</h1>
+          <p id="movie-summary" class="lead summary">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ <p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+            <div id="movie-IMDB" class="px-4 me-md-2 fw-bold">Primary</div>
+            <div id="movie-RTM" class="px-4 me-md-2 fw-bold">Default</div>
+            <div id="movie-Metacritic" class="px-4 me-md-2 fw-bold">Default</div>
           </div>
+          <p id="movie-Review" class="lead summary"><p></p>
         </div>
       </div>
     </div>
+    
 
 
   </main>
   <!-- theme js -->
   <script src="./themes.js"></script>
   <!-- movie app js -->
-  <script src="./classCodeTest.js"></script>
+  <script src="./moviePage.js"></script>
 
 
   <footer class="text-body-secondary mt-auto py-5 footer">

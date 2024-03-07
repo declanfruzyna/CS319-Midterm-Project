@@ -1,6 +1,7 @@
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
+//add array on movies to track between pages
 
 // load movies from API     | 2
 async function loadMovies(searchTerm){
@@ -61,24 +62,8 @@ function movieSearchPropagator(movies) {
         CardMovie.appendChild(movieListCard);
 
     }
-    loadMovieDetails();
 }
 
-//on click pulls info from OMDb |4
-function loadMovieDetails(){
-    const searchListMovies = searchList.querySelectorAll('.search-list-item');
-    searchListMovies.forEach(movie => {
-        movie.addEventListener('click', async () => {
-            // console.log(movie.dataset.id);
-            searchList.classList.add('hide-search-list');
-            movieSearchBox.value = "";
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
-            const movieDetails = await result.json();
-            // console.log(movieDetails);
-            displayMovieDetails(movieDetails);
-        });
-    });
-}
 
 function displayMovieDetails(details){
     resultGrid.innerHTML = `
@@ -102,6 +87,15 @@ function displayMovieDetails(details){
     `;
 }
 
+
+async function loadReview() {
+    //const NYT_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name%3A"Movies" AND type_of_material%3A"Review"&sort=newest&page=0&api-key{jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg}`;
+    //const NYT_URL2 = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq={filter}q=election&api-key=jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg`;
+    const res = await fetch(`${URL}`);
+    const data = await res.json();
+    // console.log(data.Search);
+    if(data.Response == "True") movieSearchPropagator(data.Search);
+}
 
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
