@@ -52,6 +52,7 @@ async function displayMovieDetails(details){
   document.getElementById("director-image").src = `${(`${currentCastURL}` != "N/A") ? `${currentCastURL}` : "./images/image_not_found.png"}`;
   await loadCast(actor0);
   console.log(currentCastURL);
+  document.getElementById("actor0-text").innerText() = cast[0].split(' ');
   document.getElementById("actor0-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
   await loadCast(actor1);
   document.getElementById("actor1-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
