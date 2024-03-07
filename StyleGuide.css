@@ -15,9 +15,11 @@
     --color-secondary: #bcbcbc;
     --color-accent: #12cdea;
     
-    --color-background: rgb(11, 22, 34);
+    --color-background: rgb(13, 27, 41);
     --content-color: rgb(21,31,46);
     --color-font: rgb(159, 173, 189);
+    --color-imporant-text: rgb(159,173,189);
+    --color-small-text: rgb(114,138,161);
     --color-font-on-dark: rgb(159, 173, 189);
     --color-header: rgb(21,34,50);
     --color-footer: rgb(17,22,29);
@@ -52,6 +54,12 @@ body {
 }
 .text {
     color: var(--color-font) !important
+}
+.title {
+    color: var(color-imporant-text) !important
+}
+.subtext {
+    color: var(--color-small-text) !important
 }
 .button {
     border-width: 2px;

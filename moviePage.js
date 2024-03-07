@@ -1,5 +1,5 @@
 const resultGrid = document.getElementById('result-grid');
-
+let currentCastURL;
 
 //On loading into Movie Page
 async function loadDetails () {
@@ -14,36 +14,60 @@ async function loadDetails () {
     console.log(movieDetails);
     if(movieDetails.Response == "True") displayMovieDetails(movieDetails);
 }
-
-function displayMovieDetails(details){
-    document.getElementById("movie-title").innerText = `${details.Title}`;
-    document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
-    document.getElementById("movie-summary").innerText = `${details.Plot}`;
+async function loadCast(details) {
+  
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZmQ0MTYyNDkwNDBhNjM1MzA5ZTJjMmViYmE3MzJiOCIsInN1YiI6IjY1ZDk1ZmI4ZGQ0N2UxMDE3YzI4MDZlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.87g0A69s11m8xlI87sigWaYOdTDOMQ4zf0nITDG2Ccs'
+    }
+  };
     
-    document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
-    document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
-    document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
+  await fetch(`https://api.themoviedb.org/3/search/person?query=${details[0]}%20${details[1]}&include_adult=false&language=en-US&page=1`, options)
+    .then(response => response.json())
+    .then(response => loadImage(response))
+    .catch(err => console.error(err));
+    
+  
+}
 
-    // resultGrid.innerHTML = `
-    // <div class = "movie-poster">
-    //     <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
-    // </div>
-    // <div class = "movie-info">
-    //     <h3 class = "movie-title">${details.Title}</h3>
-    //     <ul class = "movie-misc-info">
-    //         <li class = "year">Year: ${details.Year}</li>
-    //         <li class = "rated">Ratings: ${details.Rated}</li>
-    //         <li class = "released">Released: ${details.Released}</li>
-    //     </ul>
-    //     <p class = "genre"><b>Genre:</b> ${details.Genre}</p>
-    //     <p class = "writer"><b>Writer:</b> ${details.Writer}</p>
-    //     <p class = "actors"><b>Actors: </b>${details.Actors}</p>
-    //     <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
-    //     <p class = "language"><b>Language:</b> ${details.Language}</p>
-    //     <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
-    // </div>
-    // `;
- }
+async function displayMovieDetails(details){
+  document.getElementById("movie-title").innerText = `${details.Title}`;
+  document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
+  document.getElementById("movie-summary").innerText = `${details.Plot}`;
+  
+  document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
+  document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
+  document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
+ 
+  var director = details.Director.split(' ');
+  var cast = details.Actors.split(',');
+  let actor0 = cast[0].split(' ');
+  let actor1 = cast[1].substring(1).split(' ');
+  let actor2 = cast[2].substring(1).split(' ');
+  console.log(cast)
+  await loadCast(director);
+  console.log(currentCastURL);
+  document.getElementById("director-image").src = `${(`${currentCastURL}` != "N/A") ? `${currentCastURL}` : "./images/image_not_found.png"}`;
+  await loadCast(actor0);
+  console.log(currentCastURL);
+  document.getElementById("actor0-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  await loadCast(actor1);
+  document.getElementById("actor1-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  await loadCast(actor2);
+  document.getElementById("actor2-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  
+}
+
+function loadImage(data) {
+  console.log(data);
+  currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
+  //document.getElementById("director-image").src = `${(`https://image.tmdb.org/t/p/w500${data.results[0].profile_path}` != "N/A") ? `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}` : "./images/image_not_found.png"}`;
+}
+
+
+
  window.onload = function() { 
     loadDetails();  //example function call. 
   } 

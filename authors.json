@@ -1,0 +1,16 @@
+{
+    "authors": [
+        {
+            "name": "Declan Fruzyna",
+            "role": "Software Engineer",
+            "bio": "I am Declan and I am passionate about creating innovative software solutions.",
+            "image": "images/declan2.jpg"
+        },
+        {
+            "name": "Kaining Gao",
+            "role": "Computer Science",
+            "bio": "I am Kaining and I like to explore new technologies and apply them in creative ways.",
+            "image": "images/kaining2.png"
+        }
+    ]
+}

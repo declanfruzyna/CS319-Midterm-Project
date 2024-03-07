@@ -24,7 +24,9 @@
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <link rel="stylesheet" href="./StyleGuide.css">
-
+  
+  
+  
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -125,6 +127,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="./moviePage.html#tt0073195">ExMovie Page</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./authors.html">Author</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -134,24 +139,43 @@
   <main>
     <div class="container my-5 nav-bar-bump background">
       <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg content-zone">
-        <div class="col-lg-4 offset-rg-1 p-0 overflow-hidden shadow-lg">
-          <img id="movie-poster" class="rounded-lg-3" src="image_not_found.png" alt="" width="500">
+        <div class="col-lg-4  overflow-hidden">
+          <img id="movie-poster" class="rounded-lg-3" src="./images/image_not_found.png" alt="" >
         </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 id="movie-title" class="display-4 fw-bold lh-1 text-body-emphasis">rah</h1>
-          <p id="movie-summary" class="lead summary">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ <p>
+          <h1 id="movie-title" class="display-4 fw-bold lh-1 title">rah</h1>
+          <p id="movie-summary" class="lead summary subtext">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ <p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <div id="movie-IMDB" class="px-4 me-md-2 fw-bold">Primary</div>
-            <div id="movie-RTM" class="px-4 me-md-2 fw-bold">Default</div>
-            <div id="movie-Metacritic" class="px-4 me-md-2 fw-bold">Default</div>
+            <div id="movie-IMDB" class="px-4 me-md-2 subtext">Primary</div>
+            <div id="movie-RTM" class="px-4 me-md-2 subtext">Default</div>
+            <div id="movie-Metacritic" class="px-4 me-md-2 subtext">Default</div>
           </div>
           <p id="movie-Review" class="lead summary"><p></p>
         </div>
       </div>
+      <img id="director-image" scr="./images/image_not_found.png" alt="director" height="150">
+      <p id="director-text" class="cast-test"></p>
+      <img id="actor0-image" scr="./images/image_not_found.png" alt="cast1" height="150">
+      <p id="actor0-text" class="cast-test"></p>
+      <img id="actor1-image" scr="./images/image_not_found.png" alt="cast2" height="150">
+      <p id="actor1-text" class="cast-test"></p>
+      <img id="actor2-image" scr="./images/image_not_found.png" alt="cast3" height="150">
+      <p id="actor2-text" class="cast-test"></p>
     </div>
-    
 
-
+    <div id=${movies[i].imdbID} class="card shadow-sm content-zone search-item-thumbnail search-list-item">
+      <a href="./moviePage.html#${movies[i].imdbID}"><img src=${moviePoster} class="card-img-top" alt="..."></img></a>
+      <div class="card-body">
+          <p class="card-text text"> <strong>${movies[i].Title}</strong>, ${movies[i].Year}</p>
+          <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-body-secondary">9 mins</small>
+          </div>
+      </div>
+  </div>
   </main>
   <!-- theme js -->
   <script src="./themes.js"></script>
