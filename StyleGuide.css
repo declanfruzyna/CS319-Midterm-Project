@@ -55,6 +55,7 @@ body {
 .text {
     color: var(--color-font) !important
 }
+/* Movie Page*/
 .title {
     color: var(color-imporant-text) !important
 }
@@ -71,8 +72,9 @@ body {
 .nav-bar-bump {
     margin-top: 80px !important;
 }
-
-
+.empty-space {
+    margin-top: 400 !important; 
+}
 
 
 

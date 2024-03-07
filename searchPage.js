@@ -31,9 +31,8 @@ function movieSearchPropagator(movies) {
     searchList.innerHTML = `<div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3"></div>`;
     // Find the element “col” in HTML
     var CardMovie = document.getElementById("col");
-    if (movies.length == 0) {
-        footerLoc.classList.add("empty-space");
-    }
+    footerLoc.classList.remove("fixed-bottom");
+
     // Read every movie from the array
     for (let i = 0; i < movies.length; i++) {
 
@@ -43,7 +42,7 @@ function movieSearchPropagator(movies) {
         if(movies[i].Poster != "N/A")
             moviePoster = movies[i].Poster;
         else 
-            moviePoster = "image_not_found.png";
+            moviePoster = "./images/image_not_found.png";
 
         // add class = “col” to new division for Bootstrap
         movieListCard.classList.add("col");

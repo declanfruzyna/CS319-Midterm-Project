@@ -2,7 +2,7 @@ const resultGrid = document.getElementById('result-grid');
 let currentCastURL;
 
 //On loading into Movie Page
-async function loadDetails () {
+async function loadDetails() {
     var a = window.location.href; //gets URL
     let movieId = (a.split('#').pop()); //gets After  #
     console.log(movieId);
@@ -32,7 +32,7 @@ async function loadCast(details) {
   
 }
 //used get element since all items will always exist
-async function displayMovieDetails(details){
+function displayMovieDetails(details) {
   //basic movie info
   document.getElementById("movie-title").innerText = `${details.Title}`;
   document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
@@ -41,9 +41,10 @@ async function displayMovieDetails(details){
   document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
   document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
   document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
+  displayCastDetails(details);
   
-
-
+}
+async function displayCastDetails(details) {
   //creates director card
   var director = details.Director.split(' ');
   await loadCast(director);
@@ -61,7 +62,6 @@ async function displayMovieDetails(details){
     document.getElementById(`actor${i}-text`).innerText = `${actor[0]} ${actor[1]}`;
     document.getElementById(`actor${i}-image`).src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
   }
-  
 }
 
 function loadImage(data) {
@@ -71,7 +71,6 @@ function loadImage(data) {
 }
 
 
-
- window.onload = function() { 
-    loadDetails();  //example function call. 
-  } 
+window.onload = function() { 
+  loadDetails();  //example function call. 
+} 
