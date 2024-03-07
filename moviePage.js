@@ -17,7 +17,7 @@ async function loadDetails () {
 
 function displayMovieDetails(details){
     document.getElementById("movie-title").innerText = `${details.Title}`;
-    document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}`;
+    document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
     document.getElementById("movie-summary").innerText = `${details.Plot}`;
     
     document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
