@@ -153,28 +153,57 @@
           <p id="movie-Review" class="lead summary"><p></p>
         </div>
       </div>
-      <img id="director-image" scr="./images/image_not_found.png" alt="director" height="150">
-      <p id="director-text" class="cast-test"></p>
-      <img id="actor0-image" scr="./images/image_not_found.png" alt="cast1" height="150">
-      <p id="actor0-text" class="cast-test"></p>
-      <img id="actor1-image" scr="./images/image_not_found.png" alt="cast2" height="150">
-      <p id="actor1-text" class="cast-test"></p>
-      <img id="actor2-image" scr="./images/image_not_found.png" alt="cast3" height="150">
+      <p  class="cast-text"></p>
+      
+      <p class="cast-text"></p>
+      
+      <p class="cast-test"></p>
+      
       <p id="actor2-text" class="cast-test"></p>
     </div>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
 
-    <div id=${movies[i].imdbID} class="card shadow-sm content-zone search-item-thumbnail search-list-item">
-      <a href="./moviePage.html#${movies[i].imdbID}"><img src=${moviePoster} class="card-img-top" alt="..."></img></a>
-      <div class="card-body">
-          <p class="card-text text"> <strong>${movies[i].Title}</strong>, ${movies[i].Year}</p>
-          <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-body-secondary">9 mins</small>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img id="director-image" scr="./images/image_not_found.png" alt="director">
+            <div class="card-body">
+              <p class="card-text cast-text">Director</p>
+              <p id="director-text" class="card-price"></p>
+            </div>
           </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img id="actor0-image" scr="./images/image_not_found.png" alt="cast1">
+            <div class="card-body cast-text">
+              <p class="card-text">Actor</p>
+              <p id="actor0-text" class="card-price"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img id="actor1-image" scr="./images/image_not_found.png" alt="cast2">
+            <div class="card-body">
+              <p class="card-text">Actor</p>
+              <p id="actor1-text" class="card-price"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img id="actor2-image" scr="./images/image_not_found.png" alt="cast3">
+            <div class="card-body">
+              <p class="card-text">Actor</p>
+              <p id="actor2-text" class="card-price"></p>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
   </div>
   </main>
   <!-- theme js -->
