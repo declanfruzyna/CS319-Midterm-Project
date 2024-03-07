@@ -31,33 +31,36 @@ async function loadCast(details) {
     
   
 }
-
+//used get element since all items will always exist
 async function displayMovieDetails(details){
+  //basic movie info
   document.getElementById("movie-title").innerText = `${details.Title}`;
   document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
   document.getElementById("movie-summary").innerText = `${details.Plot}`;
-  
+  //ratings
   document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
   document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
   document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
- 
+  
+
+
+  //creates director card
   var director = details.Director.split(' ');
-  var cast = details.Actors.split(',');
-  let actor0 = cast[0].split(' ');
-  let actor1 = cast[1].substring(1).split(' ');
-  let actor2 = cast[2].substring(1).split(' ');
-  console.log(cast)
   await loadCast(director);
   console.log(currentCastURL);
+  document.getElementById("director-text").innerText = `${director[0]} ${director[1]}`;
   document.getElementById("director-image").src = `${(`${currentCastURL}` != "N/A") ? `${currentCastURL}` : "./images/image_not_found.png"}`;
-  await loadCast(actor0);
-  console.log(currentCastURL);
-  document.getElementById("actor0-text").innerText() = cast[0].split(' ');
-  document.getElementById("actor0-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
-  await loadCast(actor1);
-  document.getElementById("actor1-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
-  await loadCast(actor2);
-  document.getElementById("actor2-image").src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  
+  //creates cast cards
+  var cast = details.Actors.split(',');
+  cast[0] = ` ${cast[0]}`;
+  console.log(cast);
+  for (i=0; i < cast.length; i++) {
+    actor = cast[i].substring(1).split(' ');
+    await loadCast(actor);
+    document.getElementById(`actor${i}-text`).innerText = `${actor[0]} ${actor[1]}`;
+    document.getElementById(`actor${i}-image`).src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  }
   
 }
 

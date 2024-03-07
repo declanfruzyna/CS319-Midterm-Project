@@ -23,6 +23,8 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./StyleGuide.css">
+
 
   <style>
     .bd-placeholder-img {
@@ -183,18 +185,6 @@
       display: block !important;
     }
 
-    .bg-body-tertiary {
-      background-color: rgb(243, 235, 255) !important;
-    }
-
-    .bg-dark {
-      background-color: rgb(121, 91, 169) !important;
-    }
-
-    .card-body {
-      background-color: rgb(196, 169, 226);
-    }
-
     .card-text {
       margin-bottom: 5px;
     }
@@ -230,6 +220,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="./authors.html">Author</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./attributions.html">attributions</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -247,14 +240,26 @@
 
 
   
-  <footer class="text-body-secondary py-5">
+  <!-- theme js -->
+  <script src="./themes.js"></script>
+  <!-- movie app js -->
+  <script src="./searchPage.js"></script>
+
+
+  <footer class="text-body-secondary mt-auto py-5 footer empty-space">
     <div class="container">
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
       </p>
+      <button id="switch" onclick="lightTheme()">Light</button>
+      <button id="switch" onclick="darkTheme()">Dark</button>
       <p class="mb-1">Album example is &copy; Bootstrap</p>
       <p class="mb-0">@Declan Fruzyna & Kaining Gao</p>
       <p class="mb-0">Made 2/27/24</p>
+      <p class="float-end mb-1">
+        <a class="text" href="./attributions.html">attributions</a>
+        <a class="text" href="./authors.html">authors</a>
+      </p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

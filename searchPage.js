@@ -1,6 +1,7 @@
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
+const footerLoc = document.getElementById("footer");
 //add array on movies to track between pages
 
 // load movies from API     | 2
@@ -30,7 +31,9 @@ function movieSearchPropagator(movies) {
     searchList.innerHTML = `<div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3"></div>`;
     // Find the element “col” in HTML
     var CardMovie = document.getElementById("col");
-
+    if (movies.length == 0) {
+        footerLoc.classList.add("empty-space");
+    }
     // Read every movie from the array
     for (let i = 0; i < movies.length; i++) {
 
@@ -45,6 +48,7 @@ function movieSearchPropagator(movies) {
         // add class = “col” to new division for Bootstrap
         movieListCard.classList.add("col");
         // create Bootstrap card
+        //use innerHTML since doesnt always exist
         movieListCard.innerHTML = `
             <div id=${movies[i].imdbID} class="card shadow-sm content-zone search-item-thumbnail search-list-item">
                 <a href="./moviePage.html#${movies[i].imdbID}"><img src=${moviePoster} class="card-img-top" alt="..."></img></a>
@@ -60,33 +64,8 @@ function movieSearchPropagator(movies) {
                 </div>
             </div>`;
         CardMovie.appendChild(movieListCard);
-
     }
 }
-
-
-function displayMovieDetails(details){
-    resultGrid.innerHTML = `
-    <div class = "movie-poster">
-        <img src = "${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}" alt = "movie poster">
-    </div>
-    <div class = "movie-info">
-        <h3 class = "movie-title">${details.Title}</h3>
-        <ul class = "movie-misc-info">
-            <li class = "year">Year: ${details.Year}</li>
-            <li class = "rated">Ratings: ${details.Rated}</li>
-            <li class = "released">Released: ${details.Released}</li>
-        </ul>
-        <p class = "genre"><b>Genre:</b> ${details.Genre}</p>
-        <p class = "writer"><b>Writer:</b> ${details.Writer}</p>
-        <p class = "actors"><b>Actors: </b>${details.Actors}</p>
-        <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
-        <p class = "language"><b>Language:</b> ${details.Language}</p>
-        <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
-    </div>
-    `;
-}
-
 
 async function loadReview() {
     //const NYT_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name%3A"Movies" AND type_of_material%3A"Review"&sort=newest&page=0&api-key{jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg}`;
