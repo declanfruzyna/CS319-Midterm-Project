@@ -25,7 +25,6 @@
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./StyleGuide.css">
 
-
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -197,8 +196,8 @@
       padding-top: 5rem!important;
     }
     .themed-grid-col {
-      background-color: #b89fea;
-      border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3)
+      /* background-color: #b89fea; */
+      border: 1px dashed rgba(112.520718, 44.062154, 249.437846, .3);
     }
   </style>
 
@@ -209,12 +208,11 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark header-color">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.html">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
           </li>
@@ -228,9 +226,16 @@
             <a class="nav-link active" href="./attributions.html">attributions</a>
           </li>
         </ul>
+        <!-- sends you to search page & searchs it -->
+        <form role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
       </div>
     </div>
   </nav>
+
+
+  
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -243,72 +248,65 @@
     <div class="container">
       <div class="container my-5 nav-bar-bump background">
 
-        <div class="row mb-3 text-center">
+        <div class="row mb-3 text-center content-zone">
           <div class="col-md-4 themed-grid-col">
             <div class="pb-3">
-              <a href="https://www.omdbapi.com/">OMDb API</a>
+              <a onmouseover="mouseOver()" onmouseout="mouseOut()" id="link" class="active" href="https://www.omdbapi.com/"><strong>OMDb API</strong></a>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">Search Page</div>
+              <div class="col-md-12 themed-grid-col">
+                <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
+              </div>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">Movie Page</div>
+              <div class="col-md-12 themed-grid-col">
+                <a class="nav-link active" href="./moviePage.html#tt0073195">Movie Page</a>
+              </div>
             </div>
           </div>
           <div class="col-md-8 themed-grid-col">Used to movies, and movie page to get the info on the movie</div>
         </div>
 
-        <div class="row mb-3 text-center">
+        <div class="row mb-3 text-center content-zone">
           <div class="col-md-4 themed-grid-col">
             <div class="pb-3">
-              <a href="https://developer.themoviedb.org/docs/getting-started">TMDb API</a>
+              <a class="active" href="https://developer.themoviedb.org/docs/getting-started">TMDb API</a>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">Movie Page</div>
+              <div class="col-md-12 themed-grid-col">
+                <a class="nav-link active" href="./moviePage.html#tt0073195">Movie Page</a>
+              </div>
             </div>
           </div>
-          <div class="col-md-8 themed-grid-col">Used to get images for director and actors</div>
+          <div class="col-md-8 themed-grid-col">Used to get images for directors and actors</div>
         </div>
 
-      <div class="row mb-3 text-center">
-        <div class="col-md-4 themed-grid-col"><a href="https://www.omdbapi.com/">OMDb API</a></div>
-        <div class="col-md-8 themed-grid-col">
-          <div class="pb-4">
-            .col-md-8
-          </div>
-          <div class="row">
-            <div class="col-md-fluid themed-grid-col"></div>
+        <div class="row mb-3 text-center content-zone">
+          <div class="col-md-4 themed-grid-col"><a href="https://www.omdbapi.com/">OMDb API</a></div>
+          <div class="col-md-8 themed-grid-col">
+            <div class="pb-4">
+              .col-md-8
+            </div>
+            <div class="row">
+              <div class="col-md-fluid themed-grid-col">hi</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="row mb-3 text-center">
-        <div class="col-md-4 themed-grid-col"></div>
-        <div class="col-md-8 themed-grid-col">
-          <div class="pb-4">
-            .col-md-8
+        <div class="row mb-3 text-center content-zone">
+          <div class="col-md-4 themed-grid-col">hi</div>
+          <div class="col-md-8 themed-grid-col">
+            <div class="pb-4">
+              .col-md-8
+            </div>
+            <div class="row">
+              <div class="col-md-fluid themed-grid-col">hi</div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-md-fluid themed-grid-col"></div>
-          </div>
         </div>
-      </div>
-  
 
-
-      <div class="row mb-3 text-center">
-        <div class="row row-cols-1 row-cols-md-3 gx-4 text-center">
-          <div class="col themed-grid-col">hi</div>
-          <div class="col themed-grid-col">hi</div>
-          <div class="col themed-grid-col">hi</div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 gx-4 text-center">
-          <div class="col themed-grid-col col-md-4">hi</div>
-          <div class="col themed-grid-col col-md-8">hi</div>
-        </div>
       </div>
     </div>
-  </div>
   </main>
 
 
@@ -319,7 +317,7 @@
   <script src="./searchPage.js"></script>
 
 
-  <footer class="text-body-secondary mt-auto py-5 footer empty-space">
+  <footer class="text-body-secondary mt-auto py-5 footer fixed-bottom">
     <div class="container">
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
