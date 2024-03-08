@@ -22,11 +22,11 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="./StyleGuide.css">
-  
-  
-  
+
+
+
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -104,6 +104,52 @@
     .bd-mode-toggle .dropdown-menu .active .bi {
       display: block !important;
     }
+
+    /* Button Styles */
+    .watch-now-btn {
+      padding: 10px 20px;
+      background-color: var(--color-background);
+      /* Use background color variable */
+      color: var(--color-font);
+      /* Use font color variable */
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      /* Align better inline with other elements */
+      text-align: center;
+      /* Center text inside the button */
+    }
+
+    /* Button hover state */
+    .watch-now-btn:hover {
+      background-color: var(--color-accent);
+      /* Change to accent color on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      /* More pronounced shadow on hover */
+    }
+
+    /* Button focus state */
+    .watch-now-btn:focus {
+      outline: none;
+      /* Removes the default focus outline */
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+      /* White focus ring around the button */
+    }
+
+    /* Button active state */
+    .watch-now-btn:active {
+      transform: translateY(2px);
+      /* Button moves down slightly when clicked */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      /* Less pronounced shadow when button is pressed */
+    }
   </style>
 
 
@@ -140,64 +186,72 @@
     <div class="container my-5 nav-bar-bump background">
       <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg content-zone">
         <div class="col-lg-4  overflow-hidden">
-          <img id="movie-poster" class="rounded-lg-3" src="./images/image_not_found.png" alt="" >
+          <img id="movie-poster" class="rounded-lg-3" src="./images/image_not_found.png" alt="">
         </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 id="movie-title" class="display-4 fw-bold lh-1 title">rah</h1>
-          <p id="movie-summary" class="lead summary subtext">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ <p>
+          <p id="movie-summary" class="lead summary subtext">Summary for movie ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~
+            ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~
+          <p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
             <div id="movie-IMDB" class="px-4 me-md-2 subtext">Primary</div>
             <div id="movie-RTM" class="px-4 me-md-2 subtext">Default</div>
             <div id="movie-Metacritic" class="px-4 me-md-2 subtext">Default</div>
           </div>
-          <p id="movie-Review" class="lead summary"><p></p>
+          <p id="movie-Review" class="lead summary">
+          <p></p>
+          <div class="container-watch-now-button">
+            <!--Button goes here-->
+          </div>
         </div>
       </div>
     </div>
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-                                        <!-- number of slots  gap            -->
-      <div class="row row-cols-1 row-cols-sm-4 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img id="director-image" scr="./images/image_not_found.png" alt="director">
-            <div class="card-body">
-              <p class="card-text cast-text">Director</p>
-              <p id="director-text" class="card-price"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img id="actor0-image" scr="./images/image_not_found.png" alt="cast0">
-            <div class="card-body cast-text">
-              <p class="card-text">Actor</p>
-              <p id="actor0-text" class="card-price">hi</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img id="actor1-image" scr="./images/image_not_found.png" alt="cast1">
-            <div class="card-body">
-              <p class="card-text">Actor</p>
-              <p id="actor1-text" class="card-price">hi</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img id="actor2-image" scr="./images/image_not_found.png" alt="cast2">
-            <div class="card-body">
-              <p class="card-text">Actor</p>
-              <p id="actor2-text" class="card-price">hi</p>
-            </div>
-          </div>
-        </div>
 
+
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <!-- number of slots  gap            -->
+        <div class="row row-cols-1 row-cols-sm-4 row-cols-md-4 g-4">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="director-image" scr="./images/image_not_found.png" alt="director">
+              <div class="card-body">
+                <p class="card-text cast-text">Director</p>
+                <p id="director-text" class="card-price"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="actor0-image" scr="./images/image_not_found.png" alt="cast0">
+              <div class="card-body cast-text">
+                <p class="card-text">Actor</p>
+                <p id="actor0-text" class="card-price">hi</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="actor1-image" scr="./images/image_not_found.png" alt="cast1">
+              <div class="card-body">
+                <p class="card-text">Actor</p>
+                <p id="actor1-text" class="card-price">hi</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="actor2-image" scr="./images/image_not_found.png" alt="cast2">
+              <div class="card-body">
+                <p class="card-text">Actor</p>
+                <p id="actor2-text" class="card-price">hi</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
   </main>
   <!-- theme js -->
   <script src="./themes.js"></script>
