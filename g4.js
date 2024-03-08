@@ -4,7 +4,7 @@ document.getElementById("askButton").addEventListener('click',function(){
     question = "Please guess the movie's name from this description (gives three guesses):"+document.getElementById('question').value;
 
     //api
-    const apiKey = "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"
+    const apiKey = "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"
 
     fetch("https://api.openai.com/v1/chat/completions",{
         method:"POST",
