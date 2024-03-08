@@ -193,6 +193,23 @@
     .py-5 {
       padding-top: 5rem !important;
     }
+        /* Additional CSS for search bar */
+    .search-element input[type="text"] {
+      width: 100%; /* Full width by default */
+      max-width: 900px; /* Maximum width of the search bar */
+      padding: 10px 20px; /* Top and bottom padding, left and right padding */
+      margin: 20px auto; /* Margin top and bottom, auto on left and right to center it */
+      border: 2px solid #ddd; /* A light border */
+      border-radius: 25px; /* Rounded corners */
+      transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transitions for focus */
+    }
+
+    /* Interactive focus state */
+    .search-element input[type="text"]:focus {
+      border-color: #34568B; /* Change border color when active */
+      box-shadow: 0 0 8px 0 rgba(52, 86, 139, 0.2); /* Slight shadow for depth */
+      outline: none; /* Remove the default focus outline */
+    }
   </style>
 
 
