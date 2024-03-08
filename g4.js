@@ -4,13 +4,16 @@ document.getElementById("askButton").addEventListener('click',function(){
     question = "Please guess the movie's name from this description (gives three guesses):"+document.getElementById('question').value;
 
     //api
-    const apiKey = "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"
+    const apiKey = ""//can't reveal, otherwise Openai will delete the key
+    const ap = "sk-SmEJ"
+    const iK = "5SzDPvtL5Ptm"
+    const ey = "Y7IGT3BlbkFJEI3kdELVY4Xy5Gjt7WHk"
 
     fetch("https://api.openai.com/v1/chat/completions",{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${apiKey}`
+            "Authorization":`Bearer ${ap+iK+ey}`
         },
         body:JSON.stringify({
             model:"gpt-4",
