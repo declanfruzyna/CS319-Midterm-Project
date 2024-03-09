@@ -1,7 +1,7 @@
 document.getElementById("askButton").addEventListener('click',function(){
 
     //get data from input and construct the prompt
-    question = "Please guess the movie's name from this description (gives three guesses):"+document.getElementById('question').value;
+    question = "guess movie tile from description (3guesses):"+document.getElementById('question').value;
 
     //api
     const apiKey = ""//can't reveal, otherwise Openai will delete the key
