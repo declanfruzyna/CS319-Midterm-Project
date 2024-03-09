@@ -11,9 +11,7 @@ async function loadMovies(searchTerm){
     const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=616122f3`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
-    // console.log(data.Search);
     if(data.Response == "True") movieSearchPropagator(data.Search);
-    //else displayMovieList() JSON file data
 }
 
 //gets called by search     | 1
@@ -27,8 +25,6 @@ function findMovies(){
         searchList.classList.add('hide-search-list');
     }
 }
-
-
 
 //                          | 3
 function movieSearchPropagator(movies) {
@@ -68,15 +64,6 @@ function movieSearchPropagator(movies) {
             </div>`;
         CardMovie.appendChild(movieListCard);
     }
-}
-
-async function loadReview() {
-    //const NYT_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name%3A"Movies" AND type_of_material%3A"Review"&sort=newest&page=0&api-key{jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg}`;
-    //const NYT_URL2 = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&fq={filter}q=election&api-key=jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg`;
-    const res = await fetch(`${URL}`);
-    const data = await res.json();
-    // console.log(data.Search);
-    if(data.Response == "True") movieSearchPropagator(data.Search);
 }
 
 window.addEventListener('click', (event) => {

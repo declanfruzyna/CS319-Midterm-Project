@@ -69,6 +69,9 @@ body {
 .subtext:hover {
     color: var(--color-imporant-text) !important
 }
+.subtext:hover {
+    color: var(--color-imporant-text) !important
+}
 .button {
     border-width: 2px;
     border: grey;
