@@ -20,7 +20,6 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./StyleGuide.css">
@@ -196,9 +195,9 @@
       padding-top: 5rem!important;
     }
     .themed-grid-col {
-      /* background-color: #b89fea; */
-      border: 1px dashed rgba(112.520718, 44.062154, 249.437846, .3);
-    }
+      /* background-color: #b89fea;  */
+      border: 1px dashed rgba(112.520718, 44.062154, 249.437846, .3); 
+    } 
   </style>
 
 
@@ -207,35 +206,33 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark header-color">
     <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="./index.html">Search</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav me-auto">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
+            <a class="nav-link active" href="./moviePage.html#tt0073195">Example Movie Page</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./moviePage.html#tt0073195">ExMovie Page</a>
+            <a class="nav-link active" href="./g4.html">Ask AI</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="./authors.html">Author</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./attributions.html">attributions</a>
+            <a class="nav-link active" href="./attributions.html">Attributions</a>
           </li>
         </ul>
         <!-- sends you to search page & searchs it -->
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        <!-- <form role="search">
+          <input type="text" class="form-control thing" placeholder="Search..." id="nav-search-box">
+        </form> -->
       </div>
     </div>
   </nav>
-
-
-  
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -250,60 +247,53 @@
 
         <div class="row mb-3 text-center content-zone">
           <div class="col-md-4 themed-grid-col">
-            <div class="pb-3">
+            <div class="pb-3 content-zone">
               <a onmouseover="mouseOver()" onmouseout="mouseOut()" id="link" class="active" href="https://www.omdbapi.com/"><strong>OMDb API</strong></a>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">
+              <div class="col-md-12 themed-grid-col text">
                 <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">
+              <div class="col-md-12 themed-grid-col text">
                 <a class="nav-link active" href="./moviePage.html#tt0073195">Movie Page</a>
               </div>
             </div>
           </div>
-          <div class="col-md-8 themed-grid-col">Used to movies, and movie page to get the info on the movie</div>
+          <div class="col-md-8 themed-grid-col attributions-boxes content-zone">Used for movie search, and fill in all the info on the specific movie</div>
         </div>
 
         <div class="row mb-3 text-center content-zone">
           <div class="col-md-4 themed-grid-col">
-            <div class="pb-3">
+            <div class="pb-3 content-zone">
               <a class="active" href="https://developer.themoviedb.org/docs/getting-started">TMDb API</a>
             </div>
             <div class="row">
-              <div class="col-md-12 themed-grid-col">
+              <div class="col-md-12 themed-grid-col text">
                 <a class="nav-link active" href="./moviePage.html#tt0073195">Movie Page</a>
               </div>
             </div>
           </div>
-          <div class="col-md-8 themed-grid-col">Used to get images for directors and actors</div>
+          <div class="col-md-8 themed-grid-col attributions-boxes content-zone">Used to get images for directors and actors</div>
         </div>
 
-        <div class="row mb-3 text-center content-zone">
-          <div class="col-md-4 themed-grid-col"><a href="https://www.omdbapi.com/">OMDb API</a></div>
-          <div class="col-md-8 themed-grid-col">
-            <div class="pb-4">
-              .col-md-8
-            </div>
-            <div class="row">
-              <div class="col-md-fluid themed-grid-col">hi</div>
-            </div>
-          </div>
-        </div>
 
         <div class="row mb-3 text-center content-zone">
-          <div class="col-md-4 themed-grid-col">hi</div>
-          <div class="col-md-8 themed-grid-col">
-            <div class="pb-4">
-              .col-md-8
+          <div class="col-md-4 themed-grid-col">
+            <div class="pb-3 content-zone">
+              <a href="https://openai.com/">Open API</a>
             </div>
             <div class="row">
-              <div class="col-md-fluid themed-grid-col">hi</div>
+              <div class="col-md-12 themed-grid-col text">
+                <a class="nav-link active" href="./g4.html">Ask Ai</a>
+              </div>
             </div>
           </div>
+          <div class="col-md-8 themed-grid-col attributions-boxes content-zone">Used for movie search based off of description</div>
         </div>
+        
+
 
       </div>
     </div>

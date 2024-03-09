@@ -79,7 +79,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark header-color">
     <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">Home</a>
+      <a class="navbar-brand" href="./index.html">Search</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -87,18 +87,28 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
+            <a class="nav-link active" href="./moviePage.html#tt0073195">Example Movie Page</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./moviePage.html#tt0073195">ExMovie Page</a>
+            <a class="nav-link active" href="./g4.html">Ask AI</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="./authors.html">Author</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./attributions.html">Attributions</a>
+          </li>
         </ul>
+        <!-- sends you to search page & searchs it -->
+        <!-- <form role="search">
+          <input type="text" class="form-control thing" placeholder="Search..." id="nav-search-box">
+        </form> -->
       </div>
     </div>
   </nav>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  
   <div class="container">
     <div class="authors-row">
       <!-- Where the json files kick in -->
@@ -111,7 +121,7 @@
   <script src="./searchPage.js"></script>
 
 
-  <footer class="text-body-secondary mt-auto py-5 footer empty-space">
+  <footer class="text-body-secondary mt-auto py-5 footer">
     <div class="container">
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
@@ -121,6 +131,10 @@
       <p class="mb-1">Album example is &copy; Bootstrap</p>
       <p class="mb-0">@Declan Fruzyna & Kaining Gao</p>
       <p class="mb-0">Made 2/27/24</p>
+      <p class="float-end mb-1">
+        <a class="text" href="./attributions.html">attributions</a>
+        <a class="text" href="./authors.html">authors</a>
+      </p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,4 +1,3 @@
-const resultGrid = document.getElementById('result-grid');
 let currentCastURL;
 
 //On loading into Movie Page
@@ -12,7 +11,9 @@ async function loadDetails() {
     //const review2 = await fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movieDetails.Title}&api-key=jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg`);
     //const movieReview2 = await review2.json();
     console.log(movieDetails);
-    if(movieDetails.Response == "True") displayMovieDetails(movieDetails);
+    if(movieDetails.Response == "True") { 
+      displayMovieDetails(movieDetails);
+    }
 }
 async function loadCast(details) {
   
@@ -23,13 +24,11 @@ async function loadCast(details) {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZmQ0MTYyNDkwNDBhNjM1MzA5ZTJjMmViYmE3MzJiOCIsInN1YiI6IjY1ZDk1ZmI4ZGQ0N2UxMDE3YzI4MDZlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.87g0A69s11m8xlI87sigWaYOdTDOMQ4zf0nITDG2Ccs'
     }
   };
-    
+  //
   await fetch(`https://api.themoviedb.org/3/search/person?query=${details[0]}%20${details[1]}&include_adult=false&language=en-US&page=1`, options)
     .then(response => response.json())
     .then(response => loadImage(response))
     .catch(err => console.error(err));
-    
-  
 }
 //used get element since all items will always exist
 function displayMovieDetails(details) {
@@ -41,10 +40,13 @@ function displayMovieDetails(details) {
   document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
   document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
   document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
+  //cards
   displayCastDetails(details);
   console.log(details.Title)
   addWatchNowButton(details);
 }
+
+//fills in card details
 async function displayCastDetails(details) {
   //creates director card
   var director = details.Director.split(' ');

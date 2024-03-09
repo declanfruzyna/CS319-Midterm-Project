@@ -16,15 +16,13 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <title>Moovies!!</title>
+  <title>Search</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
-
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./StyleGuide.css">
-
 
   <style>
     .bd-placeholder-img {
@@ -96,9 +94,6 @@
       --bs-btn-active-border-color: #5a23c8;
     }
 
-    .bd-mode-toggle {
-      z-index: 1500;
-    }
 
     .bd-mode-toggle .dropdown-menu .active .bi {
       display: block !important;
@@ -193,8 +188,26 @@
       margin-top: 0px;
       margin-bottom: 0px;
     }
+
     .py-5 {
-      padding-top: 5rem!important;
+      padding-top: 3rem !important;
+    }
+        /* Additional CSS for search bar */
+    .search-element input[type="text"] {
+      width: 100%; /* Full width by default */
+      max-width: 900px; /* Maximum width of the search bar */
+      padding: 10px 20px; /* Top and bottom padding, left and right padding */
+      margin: 20px auto; /* Margin top and bottom, auto on left and right to center it */
+      border: 2px solid #ddd; /* A light border */
+      border-radius: 25px; /* Rounded corners */
+      transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transitions for focus */
+    }
+
+    /* Interactive focus state */
+    .search-element input[type="text"]:focus {
+      border-color: #34568B; /* Change border color when active */
+      box-shadow: 0 0 8px 0 rgba(52, 86, 139, 0.2); /* Slight shadow for depth */
+      outline: none; /* Remove the default focus outline */
     }
   </style>
 
@@ -204,7 +217,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark header-color">
     <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">Home</a>
+      <a class="navbar-brand" href="./index.html">Search</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -212,10 +225,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./searchPage.html">Search</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="./moviePage.html#tt0073195">ExMovie Page</a>
+            <a class="nav-link active" href="./moviePage.html#tt0073195">Example Movie Page</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="./g4.html">Ask AI</a>
@@ -224,9 +234,13 @@
             <a class="nav-link active" href="./authors.html">Author</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./attributions.html">attributions</a>
+            <a class="nav-link active" href="./attributions.html">Attributions</a>
           </li>
         </ul>
+        <!-- sends you to search page & searchs it -->
+        <!-- <form role="search">
+          <input type="text" class="form-control thing" placeholder="Search..." id="nav-search-box">
+        </form> -->
       </div>
     </div>
   </nav>
@@ -242,14 +256,45 @@
   </main>
 
 
-  
+
+  <div class="wrapper">
+    <!-- search container -->
+    <div class="search-container">
+      <div class="search-element">
+        <h3 class="text">Search Movie:</h3>
+        <input type="text" class="form-control thing" placeholder="Search Movie Title ..." id="movie-search-box"
+          onkeyup="findMovies()" onclick="findMovies()">
+        <!-- on load, from JSON top movies ??? -->
+        <div class="album py-5 bg-body-tertiary">
+          <div class="container">
+            <div class="search-list" id="search-list">
+              <div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
+            </div>
+          </div>
+        </div>
+        <!-- list here -->
+        <!-- <div class = "search-list-item">
+                    <div class = "search-item-thumbnail">
+                        <img src = "medium-cover.jpg">
+                    </div>
+                    <div class = "search-item-info">
+                        <h3>Guardians of the Galaxy Vol. 2</h3>
+                        <p>2017</p>
+                    </div>
+                </div> -->
+      </div>
+    </div>
+    <!-- end of search container -->
+
+    
+  </div>
+
+
   <!-- theme js -->
   <script src="./themes.js"></script>
   <!-- movie app js -->
-  <script src="./searchPage.js"></script>
 
-
-  <footer class="text-body-secondary mt-auto py-5 footer fixed-bottom empty-space">
+  <<footer id="footer" class="text-body-secondary mt-auto py-5 footer fixed-bottom">
     <div class="container">
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
@@ -266,9 +311,8 @@
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
+  
+  <script src="./searchPage.js"></script>
 </body>
 
 </html>
