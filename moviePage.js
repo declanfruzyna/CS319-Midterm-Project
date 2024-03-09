@@ -42,7 +42,8 @@ function displayMovieDetails(details) {
   document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
   document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
   displayCastDetails(details);
-  
+  console.log(details.Title)
+  addWatchNowButton(details);
 }
 async function displayCastDetails(details) {
   //creates director card
@@ -74,3 +75,27 @@ function loadImage(data) {
 window.onload = function() { 
   loadDetails();  //example function call. 
 } 
+
+// This function creates a Watch Now button
+async function addWatchNowButton(details) {
+  // Create the button element
+  const watchNowButton = document.createElement('button');
+  watchNowButton.textContent = 'Watch Now';
+  watchNowButton.classList.add('watch-now-btn'); // Add a class for styling if needed
+  console.log("successfully added button");
+  // Add the click event listener to the button
+  watchNowButton.addEventListener('click', function() {
+    const titleWithPluses = details.Title.replace(/ /g, '-');
+    const searchUrl = `https://123moviestv.net/search/${encodeURIComponent(titleWithPluses)}`;
+    window.open(searchUrl, '_blank');
+  });
+
+  // Append the button to a container element on your page
+  // Replace '.button-container' with the selector for the container you want to add the button to
+  const container = document.querySelector('.container-watch-now-button');
+  container.appendChild(watchNowButton);
+  
+}
+
+
+
