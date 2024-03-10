@@ -115,8 +115,9 @@ async function addWatchNowButton(details) {
   console.log("successfully added button");
   // Add the click event listener to the button
   watchNowButton.addEventListener('click', function() {
-    const titleWithPluses = details.Title.replace(/ /g, '-');
-    const searchUrl = `https://123moviestv.net/search/${encodeURIComponent(titleWithPluses)}`;
+    const titleWithPluses = details.Title.replace(/ /g, '+');
+    const searchUrl = `https://www.amazon.com/s?k=${encodeURIComponent(titleWithPluses)}&i=movies-tv`;
+
     window.open(searchUrl, '_blank');
   });
 
