@@ -1,0 +1,2 @@
+Project: https://github.com/declanfruzyna/CS319-Midterm-Project
+Site:    https://declanfruzyna.github.io/CS319-Midterm-Project/

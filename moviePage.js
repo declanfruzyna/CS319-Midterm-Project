@@ -81,7 +81,7 @@ async function displayCastDetails(details) {
 function loadImage(data) {
   console.log(data);
 
-  if (data != null && 'results' in data && data.results.length > 0 && 'profile_path' in data.results[0]) {
+  if (data != null && 'results' in data && data.results.length > 0 && 'profile_path' in data.results[0] && data.results[0].profile_path != null) {
     currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
   } else {
     currentCastURL = "N/A";
