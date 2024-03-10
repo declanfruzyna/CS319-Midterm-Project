@@ -48,6 +48,9 @@ async function displayCastDetails(details) {
   //creates director card
   var director = details.Director.split(' ');
   await loadCast(director);
+  if (currentCastURL == "https://image.tmdb.org/t/p/w500null") {
+    currentCastURL = "N/A";
+  }
   console.log(currentCastURL);
   document.getElementById("director-text").innerText = `${director[0]} ${director[1]}`;
   document.getElementById("director-image").src = `${(`${currentCastURL}` != "N/A") ? `${currentCastURL}` : "./images/image_not_found.png"}`;
@@ -87,7 +90,8 @@ function loadImage(data) {
 //     currentCastURL = "N/A";
 //     console.log("no info found");
 //  }
-  if (data != null && 'results' in data && data.results.lentgh < 1 && 'profile_path' in data.results[0]) {
+
+  if (data != null && 'results' in data && data.results.length > 0 && 'profile_path' in data.results[0]) {
     currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
   } else {
     currentCastURL = "N/A";
