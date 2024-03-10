@@ -7,9 +7,6 @@ async function loadDetails() {
     console.log(movieId);
     const result = await fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=616122f3`);
     const movieDetails = await result.json();
-    //const review = await fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=godfather&api-key=jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg');
-    //const review2 = await fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movieDetails.Title}&api-key=jsYPOxL6Gk0EB8dUQ7G1t0pYZqeIbaPg`);
-    //const movieReview2 = await review2.json();
     console.log(movieDetails);
     if(movieDetails.Response == "True") { 
       displayMovieDetails(movieDetails);
@@ -37,9 +34,9 @@ function displayMovieDetails(details) {
   document.getElementById("movie-poster").src = `${(details.Poster != "N/A") ? details.Poster : "./images/image_not_found.png"}`;
   document.getElementById("movie-summary").innerText = `${details.Plot}`;
   //ratings
-  document.getElementById("movie-IMDB").innerText = `IMDB: ${details.Ratings[0].Value}`;
-  document.getElementById("movie-RTM").innerText = `${details.Ratings[1].Source}: ${details.Ratings[1].Value}`;
-  document.getElementById("movie-Metacritic").innerText = `${details.Ratings[2].Source}: ${details.Ratings[2].Value}`;
+  document.getElementById("movie-IMDB").innerText = `IMDB: ${(details.Ratings.length >= "1") ? details.Ratings[0].Value : "N/A"}`;
+  document.getElementById("movie-RTM").innerText = `Rotten Tomatoes: ${(details.Ratings.length >= "2") ? details.Ratings[1].Value : "N/A"}`;
+  document.getElementById("movie-Metacritic").innerText = `Metacritic: ${(details.Ratings.length >= "3") ? details.Ratings[2].Value : "N/A"}`;
   //cards
   displayCastDetails(details);
   console.log(details.Title)
@@ -59,18 +56,45 @@ async function displayCastDetails(details) {
   var cast = details.Actors.split(',');
   cast[0] = ` ${cast[0]}`;
   console.log(cast);
-  for (i=0; i < cast.length; i++) {
-    actor = cast[i].substring(1).split(' ');
-    await loadCast(actor);
-    document.getElementById(`actor${i}-text`).innerText = `${actor[0]} ${actor[1]}`;
-    document.getElementById(`actor${i}-image`).src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+  let i = 0;
+  if (details.Actors != "N/A") {
+    for (i=0; i < cast.length; i++) {
+      actor = cast[i].substring(1).split(' ');
+      await loadCast(actor);
+      document.getElementById(`actor${i}-text`).innerText = `${actor[0]} ${actor[1]}`;
+      document.getElementById(`actor${i}-image`).src = `${(currentCastURL != "N/A") ? currentCastURL : "./images/image_not_found.png"}`;
+    }
+  } else {
+      console.log("N/A input")
+      document.getElementById(`actor${0}-text`).innerText = "N/A";
+      document.getElementById(`actor${0}-image`).src = "./images/image_not_found.png";
+      document.getElementById(`actor${1}-text`).innerText = "N/A";
+      document.getElementById(`actor${1}-image`).src = "./images/image_not_found.png";
+      document.getElementById(`actor${2}-text`).innerText = "N/A";
+      document.getElementById(`actor${2}-image`).src = "./images/image_not_found.png";
   }
 }
 
 function loadImage(data) {
   console.log(data);
-  currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
-  //document.getElementById("director-image").src = `${(`https://image.tmdb.org/t/p/w500${data.results[0].profile_path}` != "N/A") ? `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}` : "./images/image_not_found.png"}`;
+  //currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
+
+//   try {
+//     currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
+    
+//  }
+//  catch (exception) {
+//     currentCastURL = "N/A";
+//     console.log("no info found");
+//  }
+  if (data != null && 'results' in data && data.results.lentgh < 1 && 'profile_path' in data.results[0]) {
+    currentCastURL = `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}`;
+  } else {
+    currentCastURL = "N/A";
+  }
+
+
+  //currentCastURL =  `${(data.results[0].profile_path === null) ? `https://image.tmdb.org/t/p/w500${data.results[0].profile_path}` : "N/A"}`;
 }
 
 
