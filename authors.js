@@ -10,6 +10,9 @@ fetch('authors.json')
                 <h2>${author.name}</h2>
                 <p>${author.role}</p>
                 <p>${author.bio}</p>
+                <p class="subtext">${author.class}</p>
+                <p class="subtext">I can be found at, ${author.contact}</p>
+                <p class="subtext">I last worked on this site ${author.date}</p>
             </div>
         </div>
       `;
