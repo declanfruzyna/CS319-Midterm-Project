@@ -5,7 +5,7 @@ async function loadDetails() {
     var a = window.location.href; //gets URL
     let movieId = (a.split('#').pop()); //gets After  #
     console.log(movieId);
-    const result = await fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=616122f3`);
+    const result = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=616122f3`);
     const movieDetails = await result.json();
     console.log(movieDetails);
     if(movieDetails.Response == "True") { 
